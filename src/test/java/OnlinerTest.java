@@ -20,14 +20,15 @@ public class OnlinerTest {
     @DataProvider(name = "currencies")
     public Object[][] currencies() {
         return new Object[][]{
-                {Currency.RUB}
+                {Currency.RUB},
+                {Currency.EUR}
         };
     }
 
     @Test(dataProvider = "currencies")
     public void checkRates(Currency currency) {
         String response = steps.getResponse(currency);
-        validator.validateSchema(200);
+        validator.validateSchema(response,200);
         validator.validateHeaders(response);
         validator.validateKeys(response);
     }

@@ -1,7 +1,8 @@
 package enums;
 
 public enum Currency {
-    RUB("RUB");
+    RUB("RUB"),
+    EUR("EUR");
 
     private final String code;
 

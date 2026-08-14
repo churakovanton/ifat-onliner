@@ -8,9 +8,10 @@ import static org.hamcrest.Matchers.hasKey;
 
 public class RateValidator {
     @Step("Проверить соответствие ответа json схеме")
-    public void validateSchema(int statusCode) {
+    public void validateSchema(String response, int statusCode) {
         given()
                 .log().all()
+                .body(response)
                 .then()
                 .body(matchesJsonSchemaInClasspath(
                         "schemas/rate_schema.json"))
